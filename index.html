@@ -60,9 +60,14 @@
                     <h3>We fix dents fast — no paint, no filler, and you save 50%. Guaranteed</h3>
                 </div>
                 <form>
-                    <input type="text" placeholder="Full Name">
-                    <input type="text" placeholder="Phone or Email">
-                    <input type="file" placeholder="d" name="" id="">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="text" placeholder="Phone or Email" required>
+                    <input type="file" id="media" name="media" accept="image/*,video/*" multiple>
+                    <label for="media" id="media-label">
+                        <span id="media-label-text">Add 3 photo/video of damage <br> (From 6 feet away; Close up; Side view)</span>
+                        <div class="preview" id="preview"></div>
+                    </label>
+
                     <button type="submit">submit</button>
                     <p class="under-form-text">
                         By submitting this form or using our services, you agree to our Terms of Service
@@ -507,5 +512,6 @@
             <!-- svg -->
         </div>
     </footer>
+    <script src="./index.js"></script>
 </body>
 </html>
