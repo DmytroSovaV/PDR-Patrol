@@ -1,0 +1,143 @@
+body {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:hover {
+  transition: 0.2s all ease-in;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+a {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.visually-hiden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.header {
+  padding-top: 15px;
+}
+.header__container, .header__contacts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header__container .fh:hover, .header__contacts .fh:hover {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: 0.2s all ease;
+  text-decoration: underline;
+}
+.header .bold {
+  font-weight: 600;
+}
+.header .phone:hover {
+  text-decoration: 2px solid #e60000 underline;
+  color: #e60000;
+}
+.header__contacts {
+  gap: 12px;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+}
+.header__contacts a:last-child {
+  border-bottom: 2px solid transparent;
+}
+.header__contacts a:last-child:hover {
+  border-bottom: 2px solid #e60000;
+}
+.header__nav {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  text-transform: uppercase;
+}
+.header__nav li, .header__nav a {
+  font-weight: 600;
+}
+.header__nav li :hover, .header__nav a :hover {
+  color: #e60000;
+  transition: 0.1s all ease;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #e60000;
+}
+.header__wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.header__logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.header__logo p {
+  font-size: 18px;
+  border-left: 4px solid black;
+  padding-left: 15px;
+}
+.header__logo img {
+  width: 100px;
+  height: auto;
+}
+.header .button {
+  padding: 12px 24px;
+  background-color: transparent;
+  border: 2px solid #e60000;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #e60000;
+  cursor: pointer;
+}
+.header .button:hover {
+  background-color: #000;
+  background-color: #e60000;
+  color: #fff;
+}
+.header a > svg:hover {
+  transform: scale(1.1);
+}
