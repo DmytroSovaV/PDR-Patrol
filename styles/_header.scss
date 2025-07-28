@@ -72,22 +72,8 @@
         height: auto;
     }
 }
-.button{
-    padding: 12px 24px;
-    background-color: transparent;
-    border: 2px solid #e60000;
-    border-radius: 6px;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: #e60000;
-    cursor: pointer;
 
-}
-.button:hover {
-    background-color: #000;
-    background-color: #e60000;
-    color: #fff;
-}
+
 a> svg:hover{
 
     transform: scale(1.1);

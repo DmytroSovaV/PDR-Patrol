@@ -43,6 +43,31 @@ a {
   margin: 0;
 }
 
+.button {
+  padding: 12px 24px;
+  width: 400px;
+  background-color: transparent;
+  border: 2px solid #e60000;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #e60000;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #000;
+  background-color: #e60000;
+  color: #fff;
+}
+
+.title {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
 h1 {
   font-size: 42px;
   font-weight: 700;
@@ -54,7 +79,7 @@ h2 {
 }
 
 h3 {
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 500;
 }
 
@@ -138,39 +163,24 @@ a {
   width: 100px;
   height: auto;
 }
-.header .button {
-  padding: 12px 24px;
-  background-color: transparent;
-  border: 2px solid #e60000;
-  border-radius: 6px;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #e60000;
-  cursor: pointer;
-}
-.header .button:hover {
-  background-color: #000;
-  background-color: #e60000;
-  color: #fff;
-}
 .header a > svg:hover {
   transform: scale(1.1);
 }
 
 .hero-section {
-  padding-top: 60px;
+  padding-top: 100px;
   height: 100vh;
 }
-.hero-section__title {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+.hero-section .button {
+  background-color: #e60000;
+  color: #fff;
 }
-.hero-section .preview {
-  margin-top: 15px;
+.hero-section .button:hover {
+  background-color: transparent;
+  color: #e60000;
 }
-.hero-section form {
+
+form {
   padding-top: 50px;
   display: flex;
   flex-direction: column;
@@ -178,36 +188,38 @@ a {
   text-align: center;
   gap: 10px;
 }
-.hero-section form .preview {
+form .preview {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 15px;
 }
-.hero-section form input, .hero-section form button, .hero-section form label {
+form input,
+form button,
+form label {
   width: 400px;
   padding: 8px 16px;
   border-radius: 12px;
   border: 1px solid #ccc;
   text-align: center;
 }
-.hero-section form label {
+form label {
   padding: 50px 0;
   position: relative;
   background-color: rgba(204, 204, 204, 0.236);
   color: rgb(136, 134, 134);
   cursor: pointer;
 }
-.hero-section form .preview {
+form .preview {
   position: absolute;
   content: "";
   top: 0;
 }
-.hero-section form input[type=file] {
+form input[type=file] {
   display: none;
 }
-.hero-section form button {
+form button {
   display: block;
   padding: 14px 28px;
   font-size: 16px;
@@ -219,20 +231,115 @@ a {
   border: 2px solid transparent;
   cursor: pointer;
 }
-.hero-section form button:hover {
+form button:hover {
   background-color: transparent;
   color: #e60000;
   border: 2px solid #e60000;
 }
-.hero-section form .under-form-text {
+form .under-form-text {
   max-width: 800px;
   padding-top: 10px;
   color: #B3B4B6;
 }
-.hero-section .media-preview {
+form .media-preview {
   width: 50px;
   height: 50px;
   object-fit: cover;
   border-radius: 8px;
   margin: 5px;
+}
+
+.banner-section {
+  background-image: url(../img/Door-Dings.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+.banner-section__container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.banner-section__title {
+  color: #fff;
+  text-align: center;
+  padding-top: 60px;
+}
+.banner-section .button {
+  background-color: #ccc;
+  padding: 18px 0;
+  font-size: 18px;
+  margin-bottom: 60px;
+}
+.banner-section .button:hover {
+  background-color: #e60000;
+  border-color: #fff;
+}
+
+.benefits-section {
+  padding-top: 60px;
+  height: 100vh;
+}
+.benefits-section__items {
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.benefits-section__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 50px;
+}
+.benefits-section__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+  height: 218px;
+}
+.benefits-section__item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+}
+.benefits-section__benefit-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #070707;
+  max-width: 221px;
+  height: 42px;
+}
+.benefits-section__benefit-desc {
+  max-width: 350px;
+}
+
+.results-section {
+  padding-top: 60px;
+  background-color: #EBEFF2;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.results-section .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+.results-section div img {
+  max-width: 600px;
+  max-height: 500px;
+  border-radius: 24px;
+}
+.results-section .swiper-button-prev,
+.results-section .swiper-button-next {
+  color: #e60000 !important;
 }

@@ -1,0 +1,32 @@
+.banner-section{
+    background-image: url(../img/Door-Dings.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+
+    &__container{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title{
+        color: #fff;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .button{
+        background-color: #ccc;
+        padding: 18px 0;
+        font-size: 18px;
+        margin-bottom: 60px;
+    }
+    .button:hover{
+        background-color:#e60000;
+        border-color: #fff;
+    }
+}
