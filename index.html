@@ -60,22 +60,25 @@
                     <h1>Paintless dent repair in Calgary</h1>
                     <h3>We fix dents fast — no paint, no filler, and you save 50%. Guaranteed</h3>
                 </div>
-                <form>
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="text" placeholder="Phone or Email" required>
-                    <input type="file" id="media" name="media" accept="image/*,video/*" multiple>
-                    <label for="media" id="media-label">
-                        <span id="media-label-text">Add 3 photo/video of damage <br> (From 6 feet away; Close up; Side view)</span>
-                        <div class="preview" id="preview"></div>
-                    </label>
+            <form id="form1" action="send.php" method="post" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="text" name="email" placeholder="Phone or Email" required>
+            
+                <input type="file" id="media-top" name="files[]" accept="image/*,video/*" multiple>
+            
+                <label for="media-top" id="media-label-top">
+                    <span id="media-label-text-top">Add 3 photo/video of damage <br> (From 6 feet away; Close up; Side view)</span>
+                    <div class="preview" id="preview-top"></div>
+                </label>
+            
+                <button class="button" type="submit">submit</button>
+                <p class="under-form-text">
+                    By submitting this form or using our services, you agree to our Terms of Service
+                    without limitation or qualification. We
+                    respect your privacy. Your information will never be shared or sold
+                </p>
+            </form>
 
-                    <button class="button" type="submit">submit</button>
-                    <p class="under-form-text">
-                        By submitting this form or using our services, you agree to our Terms of Service
-                        without limitation or qualification. We
-                        respect your privacy. Your information will never be shared or sold
-                    </p>
-                </form>
             </div>
         </div>
         <div class="banner-section">
@@ -524,22 +527,26 @@
                         with a fast, no-obligation estimate
                     </h3>
                 </div>
-                <form>
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="text" placeholder="Phone or Email" required>
-                    <input type="file" id="media" name="media" accept="image/*,video/*" multiple>
-                    <label for="media" id="media-label">
-                        <span id="media-label-text">Add 3 photo/video of damage <br> (From 6 feet away; Close up; Side view)</span>
-                        <div class="preview" id="preview"></div>
-                    </label>
+                    <form id="form2" action="send.php" method="post" enctype="multipart/form-data">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                        <input type="text" name="email" placeholder="Phone or Email" required>
+                    
+                        <input type="file" id="media-bottom" name="files[]" accept="image/*,video/*" multiple>
+                    
+                        <label for="media-bottom" id="media-label-bottom">
+                            <span id="media-label-text-bottom">Add 3 photo/video of damage <br> (From 6 feet away; Close up; Side
+                                view)</span>
+                            <div class="preview" id="preview-bottom"></div>
+                        </label>
+                    
+                        <button class="button" type="submit">submit</button>
+                        <p class="under-form-text">
+                            By submitting this form or using our services, you agree to our Terms of Service
+                            without limitation or qualification. We
+                            respect your privacy. Your information will never be shared or sold
+                        </p>
+                    </form>
 
-                    <button type="submit">submit</button>
-                    <p class="under-form-text">
-                        By submitting this form or using our services, you agree to our Terms of Service
-                        without limitation or qualification. We
-                        respect your privacy. Your information will never be shared or sold
-                    </p>
-                </form>
             </div>
         </div>
     </main>
