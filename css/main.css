@@ -567,6 +567,10 @@ form .media-preview {
   font-weight: 700;
 }
 
+.form-section {
+  background-color: #EBEFF2;
+}
+
 .footer {
   padding: 15px 0;
   background-color: #1E2A38;
