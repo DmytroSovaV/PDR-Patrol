@@ -1,5 +1,18 @@
 .header{
-    padding-top: 15px;
+    // padding-top: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: white;
+    padding: 10px 0 0 0;
+    height: 120px;
+    transition: all 0.3s ease;
+    box-shadow: none;
+    /* при скролі можна додати */
+        /* при скролі можна додати */
+
 &__container,
 &__contacts{
     display: flex;
@@ -78,4 +91,9 @@ a> svg:hover{
 
     transform: scale(1.1);
 }
+}
+.scrolled {
+
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: #ffffff;
   font-family: "Inter", sans-serif;
@@ -11,6 +12,16 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+.hero-section,
+.banner-section, .benefits-section,
+.results-section, .reviews-section,
+.services-section, .steps-section,
+.guarantee-section, .faq-section,
+.form-section {
+  padding: 60px 0;
+  min-height: calc(100vh - 120px);
 }
 
 :hover {
@@ -98,7 +109,18 @@ a {
 }
 
 .header {
-  padding-top: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: white;
+  padding: 10px 0 0 0;
+  height: 120px;
+  transition: all 0.3s ease;
+  box-shadow: none;
+  /* при скролі можна додати */
+  /* при скролі можна додати */
 }
 .header__container, .header__contacts {
   display: flex;
@@ -167,9 +189,13 @@ a {
   transform: scale(1.1);
 }
 
+.scrolled {
+  box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
 .hero-section {
-  padding-top: 100px;
-  height: 100vh;
+  padding-top: 160px;
 }
 .hero-section .button {
   background-color: #e60000;
@@ -254,7 +280,6 @@ form .media-preview {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 100vh;
 }
 .banner-section__container {
   height: 100vh;
@@ -279,10 +304,6 @@ form .media-preview {
   border-color: #fff;
 }
 
-.benefits-section {
-  padding-top: 60px;
-  height: 100vh;
-}
 .benefits-section__items {
   padding: 50px 0;
   display: flex;
@@ -301,7 +322,7 @@ form .media-preview {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 30px;
+  gap: 20px;
   height: 218px;
 }
 .benefits-section__item img {
@@ -325,14 +346,13 @@ form .media-preview {
   background-color: #EBEFF2;
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 .results-section .swiper-slide {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
+  padding: 50px 0;
 }
 .results-section div img {
   max-width: 600px;
@@ -342,4 +362,233 @@ form .media-preview {
 .results-section .swiper-button-prev,
 .results-section .swiper-button-next {
   color: #e60000 !important;
+}
+
+.reviews-section__container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.reviews-section__items {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.reviews-section__item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.reviews-section__item img:first-child {
+  max-width: 50px;
+  height: auto;
+  background-color: rgba(230, 0, 0, 0.2745098039);
+  border-radius: 50%;
+}
+.reviews-section__name {
+  font-weight: 600;
+}
+.reviews-section__rating {
+  width: 100px;
+  height: 25px;
+}
+.reviews-section__desc {
+  max-width: 221px;
+}
+.reviews-section__row {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.services-section {
+  background-color: #EBEFF2;
+}
+.services-section__items {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  padding-top: 50px;
+}
+.services-section__item {
+  padding: 30px 15px;
+  background-color: #fff;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+}
+.services-section__item span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.services-section__item img {
+  max-width: 350px;
+  border: 6px solid #EAEEF1;
+  border-radius: 24px;
+}
+.services-section__service-title {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+.services-section__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  text-align: left;
+  max-width: 300px;
+}
+.services-section__service-title, .services-section__price {
+  font-weight: 700;
+}
+.services-section__item:hover {
+  background-color: #98CCCD;
+}
+.services-section__item:hover img {
+  border: 6px solid transparent;
+}
+.services-section__item:hover .button {
+  background-color: #fff;
+}
+.services-section .button {
+  width: 300px;
+}
+.services-section .button:hover {
+  color: #e60000;
+}
+
+.steps-section__container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.steps-section__items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+}
+.steps-section__item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.steps-section__item img {
+  max-width: 60px;
+  height: auto;
+}
+.steps-section__item-name {
+  font-weight: 700;
+}
+.steps-section__item-desc {
+  max-width: 300px;
+}
+.steps-section .button {
+  margin-top: 25px;
+  background-color: #e60000;
+  color: white;
+}
+.steps-section .button:hover {
+  background-color: transparent;
+  color: #e60000;
+}
+
+.guarantee-section {
+  background-color: #EBEFF2;
+}
+.guarantee-section__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+}
+.guarantee-section__items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.guarantee-section__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.guarantee-section__item-name {
+  font-weight: 700;
+}
+.guarantee-section__item-desc {
+  max-width: 300px;
+}
+
+.faq-section__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.faq-section__items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.faq-section__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 25px;
+}
+.faq-section h3 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.footer {
+  padding: 15px 0;
+  background-color: #1E2A38;
+}
+.footer__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.footer__Flogo, .footer__privacy-and-terms, .footer__socials {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+.footer__privacy-and-terms a:hover {
+  color: #e60000;
+}
+.footer__socials a:hover {
+  scale: 1.1;
+}
+.footer img {
+  max-width: 60px;
 }

@@ -15,6 +15,16 @@ body {
     padding: 0;
     margin: 0;
 }
+.hero-section,
+.banner-section,.benefits-section,
+.results-section, .reviews-section,
+.services-section,.steps-section,
+.guarantee-section,.faq-section,
+.form-section{
+    padding: 60px 0;
+    min-height: calc(100vh - 120px);
+    // padding-top: 160px
+}
 :hover{
     transition: 0.2s all ease-in;
 }

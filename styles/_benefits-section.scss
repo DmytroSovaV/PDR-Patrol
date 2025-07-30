@@ -1,6 +1,6 @@
 .benefits-section{
-    padding-top: 60px;
-    height: 100vh;
+    // padding-top: 60px;
+    // min-height: calc(100vh - 140px);
     &__items{
         padding: 50px 0;
         display: flex;
@@ -20,7 +20,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 30px;
+        gap: 20px;
         height: 218px;
         
         

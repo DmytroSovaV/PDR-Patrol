@@ -1,0 +1,44 @@
+.reviews-section{
+
+    &__container{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    &__items{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+    &__item{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        img:first-child{
+            max-width: 50px;
+            height: auto;
+            background-color: #e6000046;
+            border-radius: 50%;
+        }
+        
+    }
+    &__name{
+        font-weight: 600;
+    }
+    &__rating{
+        width: 100px;
+        height: 25px;
+    }
+    &__desc{
+        max-width: 221px;
+    }
+    &__row{
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+    }
+}

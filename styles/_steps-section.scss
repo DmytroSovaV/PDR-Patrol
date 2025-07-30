@@ -1,0 +1,46 @@
+.steps-section{
+
+    &__container{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        justify-content: center;
+        align-items: center;
+
+    }
+    &__items{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+    }
+    &__item{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        img{
+            max-width: 60px;
+            height:auto;
+        }
+    }
+    &__item-name{
+        font-weight: 700;
+    }
+    &__item-desc{
+        max-width: 300px;
+    }  
+     .button{
+        margin-top: 25px;
+        background-color: #e60000;
+        color: #ffff;
+    }
+    .button:hover{
+        background-color: transparent;
+        color: #e60000;
+        
+    }
+    }
