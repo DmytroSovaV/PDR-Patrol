@@ -1,3 +1,37 @@
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header'); // або заміни 'header' на свій селектор хедера
+  if (window.scrollY > 10) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+function slowScrollTo(targetId) {
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+  const startPosition = window.scrollY;
+  const distance = targetPosition - startPosition;
+  const duration = 2000;
+  let startTime = null;
+
+  function easeInOutQuad(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+
+  function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const run = easeInOutQuad(timeElapsed / duration) * distance + startPosition;
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  }
+
+  requestAnimationFrame(animation);
+}
+
 function setupForm({ formId, inputId, previewId, labelTextId, maxFiles = 3 }) {
   const form = document.getElementById(formId);
   const inputFile = document.getElementById(inputId);
