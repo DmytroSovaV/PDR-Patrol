@@ -59,6 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $body .= "<p>Files not added.</p>";
         }
+        session_start();
+if (!empty($_SESSION['last_sent']) && time() - $_SESSION['last_sent'] < 10) {
+    exit('Please wait a few seconds before resubmitting.');
+}
+$_SESSION['last_sent'] = time();
 
         $mail->Body = $body;
 
