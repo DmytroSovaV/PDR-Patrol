@@ -19,11 +19,11 @@ body {
 .banner-section,.benefits-section,
 .results-section, .reviews-section,
 .services-section,.steps-section,
-.guarantee-section,.faq-section,
+.guarantee-section, .faq-section,
 .form-section{
-    padding: 60px 0;
-    min-height: calc(100vh - 200px);
-    // padding-top: 160px
+    // padding: 60px 0;
+    min-height: calc(100vh - 120px);
+    padding: 120px 0;
     display: block;
     @media screen and (min-width:375px) {
         display: flex;

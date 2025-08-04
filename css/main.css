@@ -20,8 +20,8 @@ body {
 .services-section, .steps-section,
 .guarantee-section, .faq-section,
 .form-section {
-  padding: 60px 0;
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 120px);
+  padding: 120px 0;
   display: block;
   justify-content: center;
   align-items: center;
@@ -435,7 +435,7 @@ form .media-preview {
 @media screen and (min-width: 768px) {
   .results-section div img {
     max-width: 600px;
-    max-height: 500px;
+    max-height: 400px;
   }
 }
 .results-section .swiper-button-prev,
