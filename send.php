@@ -6,6 +6,8 @@ require 'PHPMailer-master/src/Exception.php';
 require 'PHPMailer-master/src/PHPMailer.php';
 require 'PHPMailer-master/src/SMTP.php';
 
+$config = require __DIR__ . '/config.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
     $email = trim($_POST['email'] ?? '');
@@ -25,13 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'sovadimidrol@gmail.com';
-        $mail->Password = 'rren ljel bili uukx'; // Твій пароль або app password
+        $mail->Username = $config['email_user'];
+        $mail->Password = $config['email_pass']; // Твій пароль або app password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
-        $mail->setFrom('sovadimidrol@gmail.com', 'Форма з сайту');
-        $mail->addAddress('sovadimidrol@gmail.com');
+        $mail->setFrom($config['email_user'], 'Form from site');
+
+        $mail->addAddress($config['email_user']);
 
         $mail->isHTML(true);
         $mail->Subject = 'New Message from Site';
