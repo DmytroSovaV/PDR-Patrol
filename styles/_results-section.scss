@@ -12,12 +12,26 @@
         padding: 50px 0;
     }
     div img{
-        max-width: 600px;
-        max-height: 500px;
+        max-width: 300px;
+        max-height: 400px;
         border-radius: 24px;
+        @media screen and (min-width:768px) {
+            max-width: 600px;
+            max-height: 500px;
+            
+        }
     }
     .swiper-button-prev,
     .swiper-button-next{
         color: #e60000 !important;
+    }
+    .swiper-wrapper{
+        width:300px;
+        @media screen and (min-width:1024px) {
+            width: 600px;
+            // width: max-content;
+        }
+        @media screen and (min-width:768px) {
+        }
     }
 }

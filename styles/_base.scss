@@ -22,8 +22,14 @@ body {
 .guarantee-section,.faq-section,
 .form-section{
     padding: 60px 0;
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 200px);
     // padding-top: 160px
+    display: block;
+    @media screen and (min-width:375px) {
+        display: flex;
+    }
+    justify-content: center;
+    align-items: center;
 }
 :hover{
     transition: 0.2s all ease-in;
@@ -31,14 +37,23 @@ body {
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 10px;
 }
+$bp-desktop: 1280px;
+$bp-laptop: 1280px;
+$bp-tablet-S: 768px;
+$bp-tablet-L: 1024px;
 
+$bp-mobile-L: 480px;
+$bp-mobile-M: 480px;
+$bp-mobile-S: 320px;
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
+
+
 
 h1,
 h2,
@@ -77,16 +92,25 @@ a {
     gap: 25px;
 }
 h1{
-    font-size: 42px;
+    font-size: 32px;
     font-weight: 700;
+    @media screen and (min-width:$bp-mobile-L) {
+        font-size: 42px;
+    }
 }
 h2{
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 600;
+    @media screen and (min-width:$bp-mobile-L) {
+        font-size: 36px;
+    }
 }
 h3{
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 500;
+    @media screen and (min-width:$bp-mobile-L) {
+        font-size: 32px;
+        }
 }
 
 

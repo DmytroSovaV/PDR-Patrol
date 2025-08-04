@@ -5,10 +5,15 @@
   &__container{
 
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;  
       align-items: center;
       color: #fff;
+      gap: 25px;
+      @media screen and (min-width:768px) {
+        flex-direction: row;
+        
+      }
     }
 
 

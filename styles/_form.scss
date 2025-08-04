@@ -1,3 +1,11 @@
+// $bp-desktop: 1280px;
+// $bp-laptop: 1280px;
+// $bp-tablet-S: 768px;
+// $bp-tablet-L: 1024px;
+
+// $bp-mobile-L: 480px;
+// $bp-mobile-M: 480px;
+// $bp-mobile-S: 320px;
 form {
     padding-top: 50px;
     display: flex;
@@ -17,11 +25,14 @@ form {
     input,
     button,
     label {
-        width: 400px;
+        width: 300px;
         padding: 8px 16px;
         border-radius: 12px;
         border: 1px solid #ccc;
         text-align: center;
+        @media screen and (min-width:$bp-mobile-M) {
+            width: 400px;
+        }
     }
 
     label {
@@ -53,6 +64,11 @@ form {
         border: none;
         border: 2px solid transparent;
         cursor: pointer;
+        max-width: 300px;
+        
+        @media screen and (min-width:$bp-mobile-L) {
+            max-width: 400px;
+            }
     }
 
     button:hover {
@@ -64,7 +80,11 @@ form {
     .under-form-text {
         max-width: 800px;
         padding-top: 10px;
+        font-size: 12px;
         color: #B3B4B6;
+        @media screen and (min-width:$bp-mobile-L) {
+                font-size: inherit;
+            }
     }
 
     .media-preview {

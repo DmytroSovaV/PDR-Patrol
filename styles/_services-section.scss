@@ -6,9 +6,17 @@
         flex-direction: row;
         gap: 50px;
         padding-top: 50px;
+        justify-content: center;
+        flex-wrap: wrap;
+        @media screen and (min-width:1280px) {
+            flex-wrap: nowrap;
+        }
+        // flex-wrap: wrap;
+        // justify-content: center;
+        // @
     }
     &__item{
-        padding: 30px 15px;
+        padding: 30px 5px;
         background-color: #fff;
         border-radius: 24px;
         display: flex;
@@ -17,6 +25,10 @@
         align-items: center;
         gap: 15px;
         text-align: center;
+        @media screen and (min-width:425px) {
+            padding: 30px 15px;
+            
+        }
 
         span{
             display: flex;
@@ -26,9 +38,13 @@
         }
 
         img{
-            max-width: 350px;
+            max-width: 300px;
             border: 6px solid #EAEEF1;
             border-radius: 24px;
+            @media screen and (min-width:425px){
+                max-width: 350px;
+                
+            }
             
         }
     }
