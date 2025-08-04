@@ -21,10 +21,20 @@ body {
 .guarantee-section, .faq-section,
 .form-section {
   min-height: calc(100vh - 120px);
-  padding: 120px 0;
+  padding: 60px 0;
   display: block;
   justify-content: center;
   align-items: center;
+}
+@media screen and (min-width: 425px) {
+  .hero-section,
+.banner-section, .benefits-section,
+.results-section, .reviews-section,
+.services-section, .steps-section,
+.guarantee-section, .faq-section,
+.form-section {
+    padding: 120px 0;
+  }
 }
 @media screen and (min-width: 375px) {
   .hero-section,

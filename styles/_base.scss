@@ -23,7 +23,11 @@ body {
 .form-section{
     // padding: 60px 0;
     min-height: calc(100vh - 120px);
-    padding: 120px 0;
+    padding: 60px 0;
+    @media screen and (min-width:425px) {
+        padding: 120px 0;
+        
+    }
     display: block;
     @media screen and (min-width:375px) {
         display: flex;
