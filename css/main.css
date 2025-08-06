@@ -435,6 +435,10 @@ form .media-preview {
   border-color: #fff;
 }
 
+#benefits {
+  scroll-margin-top: 100px;
+}
+
 .benefits-section__items {
   padding: 50px 0;
   display: flex;
