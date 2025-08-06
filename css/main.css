@@ -589,13 +589,19 @@ form .media-preview {
   gap: 15px;
   text-align: center;
 }
-@media screen and (min-width: 425px) {
+@media screen and (min-width: 460px) {
   .services-section__item {
     padding: 30px 15px;
   }
 }
 .services-section__item button {
   background-color: #fff;
+  width: 300px;
+}
+@media screen and (min-width: 425px) {
+  .services-section__item button {
+    width: 400px;
+  }
 }
 .services-section__item span {
   display: flex;
