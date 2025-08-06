@@ -27,6 +27,9 @@
         align-items: left;
 
     }
+    &__phone{
+        color: black;
+    }
     &__phone,
     &__socials{
         display: block;
@@ -66,7 +69,7 @@
     width: 100%;
 }
 
-/* Ховаємо стандартне меню і показуємо бургер тільки на мобільних */
+
 @media (max-width: 1024px) {
 
     .header__nav,
