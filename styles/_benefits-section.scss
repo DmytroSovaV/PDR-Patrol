@@ -1,9 +1,9 @@
 
     #benefits {
-            // @media screen and min- {
-                
-            // }
-            scroll-margin-top: 100px;
+        scroll-margin-top: 140px;
+            @media screen and (min-width:425px) {
+                scroll-margin-top: 100px;
+            }
         }
 .benefits-section{
     // padding-top: 60px;
