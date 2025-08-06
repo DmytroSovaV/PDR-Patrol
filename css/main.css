@@ -259,6 +259,44 @@ a {
   color: #e60000;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  text-align: center;
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 40px 20px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #e60000;
+}
+
 form {
   padding-top: 50px;
   display: flex;
@@ -277,11 +315,18 @@ form .preview {
 form input,
 form button,
 form label {
-  width: 300px;
+  width: 260px;
   padding: 8px 16px;
   border-radius: 12px;
   border: 1px solid #ccc;
   text-align: center;
+}
+@media screen and (min-width: 375px) {
+  form input,
+form button,
+form label {
+    width: 300px;
+  }
 }
 @media screen and (min-width: 480px) {
   form input,
@@ -305,7 +350,7 @@ form .preview {
 form input[type=file] {
   display: none;
 }
-form button {
+form .button {
   display: block;
   padding: 14px 28px;
   font-size: 16px;
@@ -316,14 +361,19 @@ form button {
   border: none;
   border: 2px solid transparent;
   cursor: pointer;
-  max-width: 300px;
+  width: 260px;
 }
-@media screen and (min-width: 480px) {
-  form button {
-    max-width: 400px;
+@media screen and (min-width: 375px) {
+  form .button {
+    width: 300px;
   }
 }
-form button:hover {
+@media screen and (min-width: 480px) {
+  form .button {
+    width: 400px;
+  }
+}
+form .button:hover {
   background-color: transparent;
   color: #e60000;
   border: 2px solid #e60000;
@@ -708,6 +758,12 @@ form .media-preview {
 .footer {
   padding: 15px 0;
   background-color: #1E2A38;
+  font-size: 14px;
+}
+@media screen and (min-width: 781px) {
+  .footer {
+    font-size: 16px;
+  }
 }
 .footer__container {
   display: flex;
@@ -757,6 +813,25 @@ form .media-preview {
   transition: right 0.3s ease-in-out;
   z-index: 1000;
   padding: 40px 20px;
+}
+.burger-menu__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: left;
+}
+.burger-menu__phone, .burger-menu__socials {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+@media screen and (min-width: 372px) {
+  .burger-menu__phone, .burger-menu__socials {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+  }
 }
 
 .burger-menu.active {

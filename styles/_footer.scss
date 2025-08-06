@@ -1,6 +1,11 @@
 .footer{
-    padding: 15px 0;
+  padding: 15px 0;
   background-color: #1E2A38;
+  font-size: 14px;
+  @media screen and (min-width:781px) {
+    font-size: 16px;
+  }
+  
 
   &__container{
 
@@ -23,6 +28,8 @@
     display: flex;
     gap:  25px;
     align-items: center;
+
+    
   }
   &__privacy-and-terms a:hover{
     color: #e60000;
@@ -30,7 +37,6 @@
   &__socials a:hover{
     scale: 1.1;
   }
-
   
   img{
     max-width: 60px;

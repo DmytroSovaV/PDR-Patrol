@@ -6,6 +6,43 @@
 // $bp-mobile-L: 480px;
 // $bp-mobile-M: 480px;
 // $bp-mobile-S: 320px;
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    text-align: center;
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 40px 20px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #e60000;
+}
 form {
     padding-top: 50px;
     display: flex;
@@ -25,7 +62,11 @@ form {
     input,
     button,
     label {
-        width: 300px;
+        width: 260px;
+        @media screen and (min-width:375px) {
+            width: 300px;
+            
+        }
         padding: 8px 16px;
         border-radius: 12px;
         border: 1px solid #ccc;
@@ -53,7 +94,7 @@ form {
         display: none;
     }
 
-    button {
+    .button {
         display: block;
         padding: 14px 28px;
         font-size: 16px;
@@ -64,14 +105,18 @@ form {
         border: none;
         border: 2px solid transparent;
         cursor: pointer;
-        max-width: 300px;
-        
+        width: 260px;
+        @media screen and (min-width:375px) {
+            width: 300px;
+            
+        }
         @media screen and (min-width:$bp-mobile-L) {
-            max-width: 400px;
+            width: 400px;
             }
+        
     }
 
-    button:hover {
+    .button:hover {
         background-color: transparent;
         color: #e60000;
         border: 2px solid #e60000

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/favicon_io/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
@@ -39,7 +40,23 @@
                             <li><a href="#">franchise</a></li>
                         </ul>
                         <div class="cta">
-                            <button onclick="slowScrollTo('form-section2')" class="button" type="button" aria-labelledby="button to get a free estimate by photo" aria-labelledby="button for a free estimate by photo" class="button">get a free estimate by photo now!</button>
+                            <button id="openModalBtn" class="button openModalBtn" type="button" aria-labelledby="button to get a free estimate by photo" class="button">get a free estimate by photo now!</button>
+                        </div>
+                        <div class="burger-menu__phone">
+                            <p class="burger-menu__contacts-text">Contact us directly:</p>
+                            <a class="phone" href="tel:+13682998954">368.299.8954 or</a>
+                        </div>
+                        <div class="burger-menu__socials">
+                            <a href="https://www.messenger.com/t/291992467323725/" target="_blank">
+                                <svg width="34" height="34">
+                                    <use href="./img/sprite.svg#icon-messenger"></use>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/13682998954" target="_blank">
+                                <svg width="34" height="34">
+                                    <use href="./img/sprite.svg#icon-whatsapp"></use>
+                                </svg>
+                            </a>
                         </div>
                         
                     </div>
@@ -59,7 +76,7 @@
                         
                         </a>
                         <a class="phone" href="tel:+13682998954">368.299.8954 or </a>
-                        <button onclick="slowScrollTo('form-section2')" class="button" type="button" aria-labelledby="button to get a free estimate by photo">get a free estimate by photo now!</button>
+                        <button  id="openModalBtn" class="button openModalBtn" type="button" aria-labelledby="button to get a free estimate by photo">get a free estimate by photo now!</button>
                     </div>
                     <ul class="header__nav">
                         <li><a href="#">home</a></li>
@@ -77,7 +94,7 @@
                     <h1>Paintless dent repair in Calgary</h1>
                     <h3>We fix dents fast — no paint, no filler, and you save 50%. Guaranteed</h3>
                 </div>
-            <form id="form1" action="demo-test-send-sms.php" method="post" enctype="multipart/form-data">
+            <form id="form1" action="send.php" method="post" enctype="multipart/form-data">
                 <input type="text" name="name" placeholder="Full Name" required>
                 <input type="text" name="email" placeholder="Phone or Email" required>
             
@@ -334,7 +351,7 @@
                             </span>
                             <span>
                                 <p class="services-section__price">from 150 CAD</p>
-                                <button aria-labelledby="button to scroll to form for free estimate by photo" onclick="slowScrollTo('form-section2')" class="button" type="button">order now!</button>
+                                <button aria-labelledby="button to scroll to form for free estimate by photo" id="openModalBtn" class="button openModalBtn" type="button">order now!</button>
                             </span>
                         </div>
                         <div class="services-section__item">
@@ -358,7 +375,7 @@
                             </span>
                             <span>
                                 <p class="services-section__price">from 250 CAD</p>
-                                <button aria-labelledby="button burger menu open" onclick="slowScrollTo('form-section2')" class="button" type="button">order now!</button>
+                                <button aria-labelledby="button burger menu open" id="openModalBtn" class="button openModalBtn" type="button">order now!</button>
                             </span>
                         </div>
                         <div class="services-section__item">
@@ -382,7 +399,7 @@
                             </span>
                             <span>
                                 <p class="services-section__price">from 4000 CAD</p>
-                                <button aria-labelledby="button to scroll to form for order a free estimate by photo" onclick="slowScrollTo('form-section2')" class="button" type="button">order now!</button>
+                                <button aria-labelledby="button to scroll to form for order a free estimate by photo" id="openModalBtn" class="button openModalBtn" type="button">order now!</button>
                             </span>
                         </div>
                     </div>
@@ -431,7 +448,7 @@
                             </p>
                         </div>
                     </div>
-                    <button aria-labelledby="button to scroll to form for free estimate by photo" onclick="slowScrollTo('form-section2')" data-aos="fade-up"  data-aos-duration="1500" class="button" type="button">get a free estimate by photo now!</button>
+                    <button aria-labelledby="button to scroll to form for free estimate by photo"  data-aos="fade-up"  data-aos-duration="1500" id="openModalBtn" class="button openModalBtn" type="button">get a free estimate by photo now!</button>
                 </div>
             </div>
         </div>
@@ -546,7 +563,7 @@
                         with a fast, no-obligation estimate
                     </h3>
                 </div>
-                    <form  data-aos="fade-up"  data-aos-duration="1500" id="form2" action="mailer-sms-test.php" method="post" enctype="multipart/form-data">
+                    <form  data-aos="fade-up"  data-aos-duration="1500" id="form2" action="send.php" method="post" enctype="multipart/form-data">
                         <input type="text" name="name" placeholder="Full Name" required>
                         <input type="text" name="email" placeholder="Phone or Email" required>
                     
@@ -592,21 +609,54 @@
                         <svg width="34" height="34">
                             <use href="./img/sprite.svg#icon-whatsapp"></use>
                         </svg>
-                    
                     </a>
+                    <a href="https://www.instagram.com/pdrpatrol/" target="_blank">
+                        <img width="34" height="34" src="./img/inst-icon.svg" alt="">
+                    </a>
+                    <a href="https://m.facebook.com/pdrpatrol/" target="_blank">
+                        <img width="34" height="34" src="./img/fb-icon.svg" alt="">
+                    </a> 
+                    
                 </div>
             </div>
         </div>
     </footer>
+    <div class="modal" id="formModal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeModalBtn">&times;</span>
+            <h2>Get a Free Dent Repair Quote Today</h2>
+            <form data-aos="fade-up" data-aos-duration="1500" id="form3" action="send.php" method="post"
+                enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="text" name="email" placeholder="Phone or Email" required>
+            
+                <input type="file" id="media-modal" name="files[]" accept="image/*,video/*" multiple>
+            
+                <label for="media-modal" id="media-label-modal">
+                    <span id="media-label-text-modal">Add 3 photo/video of damage <br> (From 6 feet away; Close up; Side view)</span>
+                    <div class="preview" id="preview-modal"></div>
+                </label>
+            
+                <button aria-labelledby="button to submit and send form for a free estimate by photo" class="button"
+                    type="submit">submit</button>
+                <p class="under-form-text">
+                    By submitting this form or using our services, you agree to our Terms of Service
+                    without limitation or qualification. We
+                    respect your privacy. Your information will never be shared or sold
+                </p>
+            </form>
+        </div>
+    </div>
     <script src="./js/index.js"></script>
     <script src="./js/burger-menu.js"></script>
+    <script src="./js/modal.js"></script>
     <script src="./js/swiper-bundle.min.js"></script>
     <script src="./js/swiper.js"></script>
-
+    
     <script src="./aos-master/aos-master/dist/aos.js"></script> 
     <script>
         AOS.init();
-    </script>
+        </script>
 
 </body>
 </html>

@@ -131,41 +131,6 @@ function setupForm({ formId, inputId, previewId, labelTextId, maxFiles = 3 }) {
       reader.readAsDataURL(file);
     });
   }
-
-  form.addEventListener('submit', (ev) => {
-    ev.preventDefault();
-
-    if (selectedFiles.length === 0) {
-      alert('Please select at least one photo or video.');
-      return;
-    }
-
-    const formData = new FormData(form);
-
-    // Видаляємо старі файли, додаємо наші selectedFiles
-    for (const key of formData.keys()) {
-      if (key === inputFile.name) formData.delete(key);
-    }
-    selectedFiles.forEach((file) => {
-      formData.append(inputFile.name, file);
-    });
-
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-    })
-      .then((response) => response.text())
-      .then((result) => {
-        alert('Form submitted successfully!');
-        form.reset();
-        selectedFiles = [];
-        renderPreviews();
-      })
-      .catch((error) => {
-        alert('Error submitting the form.');
-        console.error(error);
-      });
-  });
     
     form.addEventListener('submit', (ev) => {
   ev.preventDefault();
@@ -225,4 +190,25 @@ setupForm({
   previewId: 'preview-bottom',
   labelTextId: 'media-label-text-bottom',
   maxFiles: 3,
+});
+setupForm({
+  formId: 'form3',
+  inputId: 'media-modal',
+  previewId: 'preview-modal',
+  labelTextId: 'media-label-text-modal',
+  maxFiles: 3,
+});
+document.querySelectorAll(".openModalBtn").forEach((button) => {
+  button.addEventListener("click", () => {
+    document.getElementById("formModal").style.display = "block";
+  });
+});
+document.getElementById("closeModalBtn").addEventListener("click", () => {
+  document.getElementById("formModal").style.display = "none";
+});
+window.addEventListener("click", (event) => {
+  const modal = document.getElementById("formModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
 });
