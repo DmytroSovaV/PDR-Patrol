@@ -29,6 +29,9 @@
             padding: 30px 15px;
             
         }
+        button{
+            background-color: #fff;
+        }
 
         span{
             display: flex;
@@ -65,23 +68,27 @@
     &__price{
         font-weight: 700;
     }
+    &__item:nth-child(2){
+
+        background-color: #98CCCD;
+    }
+        
     
-    &__item:hover{
-            background-color: #98CCCD;
-            img{
-                border: 6px solid transparent;
-            }
-            .button{
-                background-color: #fff;
-            }
-        }
+    // &__item:hover{
+    //         img{
+    //             border: 6px solid transparent;
+    //         }
+    //         .button{
+    //             background-color: #fff;
+    //         }
+    //     }
 
-        .button{
-            width: 300px;
+    //     .button{
+    //         width: 300px;
 
-        }
-        .button:hover{
-            color: #e60000;
-        }
+    //     }
+    //     .button:hover{
+    //         color: #e60000;
+    //     }
 
 }

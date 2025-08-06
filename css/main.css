@@ -154,14 +154,9 @@ a {
   z-index: 999;
   background: white;
   padding: 10px 0 0 0;
-  height: 120px;
+  height: 105px;
   transition: all 0.3s ease;
   box-shadow: none;
-}
-@media screen and (min-width: 1024px) {
-  .header {
-    height: 120px;
-  }
 }
 .header__container, .header__contacts {
   display: flex;
@@ -192,6 +187,11 @@ a {
 .header__contacts a:last-child:hover {
   border-bottom: 2px solid #e60000;
 }
+.header .active {
+  color: #e60000;
+  font-weight: bold;
+  border-bottom: 2px solid #e60000;
+}
 .header__nav,
 .header .burger-menu__nav {
   display: flex;
@@ -215,13 +215,16 @@ a {
 .header__wrap {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
   display: none;
 }
 @media screen and (min-width: 1024px) {
   .header__wrap {
     display: flex;
   }
+}
+.header__wrap button {
+  width: 320px;
 }
 .header__logo {
   display: flex;
@@ -230,12 +233,12 @@ a {
   align-items: center;
 }
 .header__logo p {
-  font-size: 18px;
+  font-size: 14px;
   border-left: 4px solid black;
   padding-left: 15px;
 }
 .header__logo img {
-  width: 80px;
+  width: 60px;
   height: auto;
 }
 .header a > svg:hover {
@@ -320,6 +323,7 @@ form label {
   border-radius: 12px;
   border: 1px solid #ccc;
   text-align: center;
+  font-size: 16px;
 }
 @media screen and (min-width: 375px) {
   form input,
@@ -587,6 +591,9 @@ form .media-preview {
     padding: 30px 15px;
   }
 }
+.services-section__item button {
+  background-color: #fff;
+}
 .services-section__item span {
   display: flex;
   flex-direction: column;
@@ -619,20 +626,8 @@ form .media-preview {
 .services-section__service-title, .services-section__price {
   font-weight: 700;
 }
-.services-section__item:hover {
+.services-section__item:nth-child(2) {
   background-color: #98CCCD;
-}
-.services-section__item:hover img {
-  border: 6px solid transparent;
-}
-.services-section__item:hover .button {
-  background-color: #fff;
-}
-.services-section .button {
-  width: 300px;
-}
-.services-section .button:hover {
-  color: #e60000;
 }
 
 .steps-section__container {
