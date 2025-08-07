@@ -573,12 +573,12 @@ form .media-preview {
 .services-section__items {
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  gap: 30px;
   padding-top: 50px;
   justify-content: center;
   flex-wrap: wrap;
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1360px) {
   .services-section__items {
     flex-wrap: nowrap;
   }

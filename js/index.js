@@ -164,6 +164,7 @@ function setupForm({ formId, inputId, previewId, labelTextId, maxFiles = 3 }) {
       form.reset();
       selectedFiles = [];
       renderPreviews();
+      document.getElementById("formModal").style.display = "none";
     })
     .catch((error) => {
       alert('Error submitting the form.');
