@@ -8,7 +8,7 @@
         padding-top: 50px;
         justify-content: center;
         flex-wrap: wrap;
-        @media screen and (min-width:1150px) {
+        @media screen and (min-width:1024px) {
             flex-wrap: nowrap;
         }
         // flex-wrap: wrap;
@@ -55,9 +55,9 @@
                 max-width: 350px;
                 
             }
-            @media screen and (min-width:1150px) {
-                max-width: 300px;
-
+            @media screen and (min-width:1024px) {
+                max-width: 250px;
+                
             }
             @media screen and (min-width:1210px) {
                 max-width: 350px;

@@ -578,7 +578,7 @@ form .media-preview {
   justify-content: center;
   flex-wrap: wrap;
 }
-@media screen and (min-width: 1150px) {
+@media screen and (min-width: 1024px) {
   .services-section__items {
     flex-wrap: nowrap;
   }
@@ -629,9 +629,9 @@ form .media-preview {
     max-width: 350px;
   }
 }
-@media screen and (min-width: 1150px) {
+@media screen and (min-width: 1024px) {
   .services-section__item img {
-    max-width: 300px;
+    max-width: 250px;
   }
 }
 @media screen and (min-width: 1210px) {
