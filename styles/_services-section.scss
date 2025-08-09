@@ -8,7 +8,7 @@
         padding-top: 50px;
         justify-content: center;
         flex-wrap: wrap;
-        @media screen and (min-width:1360px) {
+        @media screen and (min-width:1150px) {
             flex-wrap: nowrap;
         }
         // flex-wrap: wrap;
@@ -33,6 +33,9 @@
             background-color: #fff;
             width: 300px;
             @media screen and(min-width:425px) {
+                width: 270px;
+            }
+            @media screen and(min-width:1370px) {
                 width: 400px;
             }
         }
@@ -51,6 +54,18 @@
             @media screen and (min-width:425px){
                 max-width: 350px;
                 
+            }
+            @media screen and (min-width:1150px) {
+                max-width: 300px;
+
+            }
+            @media screen and (min-width:1210px) {
+                max-width: 350px;
+
+            }
+            @media screen and (min-width:1370px) {
+                max-width: 400px;
+
             }
             
         }
