@@ -25,12 +25,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = 'smtp.hostinger.com';
         $mail->SMTPAuth = true;
         $mail->Username = $config['email_user'];
         $mail->Password = $config['email_pass']; // Твій пароль або app password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // спробувати з 'ssl'
+        $mail->Port = 465;/// був 587 
 
         $mail->setFrom($config['email_user'], 'Form from site');
 
