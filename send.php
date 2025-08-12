@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->SMTPAuth = true;
         $mail->Username = $config['email_user'];
         $mail->Password = $config['email_pass']; // Твій пароль або app password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // спробувати з 'ssl'
+        $mail->SMTPSecure = 'ssl'; // PHPMailer::ENCRYPTION_STARTTLS; спробувати можна'
         $mail->Port = 465;/// був 587 
 
         $mail->setFrom($config['email_user'], 'Form from site');
