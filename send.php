@@ -28,9 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->Host = 'smtp.hostinger.com';
         $mail->SMTPAuth = true;
         $mail->Username = $config['email_user'];
-        $mail->Password = $config['email_pass']; // Твій пароль або app password
-        $mail->SMTPSecure = 'ssl'; // PHPMailer::ENCRYPTION_STARTTLS; спробувати можна'
-        $mail->Port = 465;/// був 587 
+        $mail->Password = $config['email_pass']; 
+        
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // PHPMailer::ENCRYPTION_STARTTLS; спробувати можна'
+        $mail->Port = 587;///
+        
+        // $mail->SMTPSecure =  PHPMailer::ENCRYPTION_SMTPS; // PHPMailer::ENCRYPTION_STARTTLS; спробувати можна'
+        // $mail->Port = 465;/// був 587 
+
 
         $mail->setFrom($config['email_user'], 'Form from site');
 
