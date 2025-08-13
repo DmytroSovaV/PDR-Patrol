@@ -19,13 +19,11 @@ if (!$name || !$email) {
     exit('Name and Email/Phone are required.');
 }
 
-
 session_start();
 if (!empty($_SESSION['last_sent']) && time() - $_SESSION['last_sent'] < 10) {
     exit('Please wait a few seconds before resubmitting.');
 }
 $_SESSION['last_sent'] = time();
-
 
 $smtp_options = [
     ['port' => 587, 'secure' => PHPMailer::ENCRYPTION_STARTTLS],
@@ -47,7 +45,7 @@ foreach ($smtp_options as $option) {
         $mail->Port = $option['port'];
 
         $mail->setFrom($config['email_user'], 'Form from site');
-        $mail->addAddress($config['email_user']); // отримувач
+        $mail->addAddress($config['email_to']);
 
         $mail->isHTML(true);
         $mail->Subject = 'New Message from Site';
@@ -56,7 +54,6 @@ foreach ($smtp_options as $option) {
                  <p><b>Full Name:</b> {$name}</p>
                  <p><b>Contacts:</b> {$email}</p>";
 
-        
         if (!empty($_FILES['files']['name'][0])) {
             $body .= "<p><b>Added files:</b></p><ul>";
             foreach ($_FILES['files']['tmp_name'] as $index => $tmpName) {
@@ -78,10 +75,8 @@ foreach ($smtp_options as $option) {
         $mail->send();
         $mail_sent = true;
         break; 
-
     } catch (Exception $e) {
         $last_error = $mail->ErrorInfo;
-        
     }
 }
 
