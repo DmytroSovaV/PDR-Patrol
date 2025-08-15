@@ -1,38 +1,3 @@
-window.addEventListener("scroll", () => {
-  const header = document.querySelector("header");
-  if (window.scrollY > 10) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-});
-
-function slowScrollTo(targetId) {
-  const target = document.getElementById(targetId);
-  if (!target) return;
-
-  const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-  const startPosition = window.scrollY;
-  const distance = targetPosition - startPosition;
-  const duration = 2000;
-  let startTime = null;
-
-  function easeInOutQuad(t) {
-    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-  }
-
-  function animation(currentTime) {
-    if (startTime === null) startTime = currentTime;
-    const timeElapsed = currentTime - startTime;
-    const run =
-      easeInOutQuad(timeElapsed / duration) * distance + startPosition;
-    window.scrollTo(0, run);
-    if (timeElapsed < duration) requestAnimationFrame(animation);
-  }
-
-  requestAnimationFrame(animation);
-}
-
 function setupForm({ formId, inputId, previewId, labelTextId, maxFiles = 3 }) {
   const form = document.getElementById(formId);
   const inputFile = document.getElementById(inputId);
@@ -41,6 +6,7 @@ function setupForm({ formId, inputId, previewId, labelTextId, maxFiles = 3 }) {
 
   let selectedFiles = [];
 
+  // Обробка вибору файлів
   inputFile.addEventListener("change", (e) => {
     const newFiles = Array.from(e.target.files);
 
@@ -57,12 +23,7 @@ function setupForm({ formId, inputId, previewId, labelTextId, maxFiles = 3 }) {
 
   function renderPreviews() {
     preview.innerHTML = "";
-
-    if (selectedFiles.length > 0) {
-      labelText.style.display = "none";
-    } else {
-      labelText.style.display = "block";
-    }
+    labelText.style.display = selectedFiles.length > 0 ? "none" : "block";
 
     selectedFiles.forEach((file, index) => {
       const reader = new FileReader();
@@ -81,12 +42,13 @@ function setupForm({ formId, inputId, previewId, labelTextId, maxFiles = 3 }) {
         if (file.type.startsWith("image/")) {
           element = document.createElement("img");
           element.src = e.target.result;
-          element.classList.add("media-preview");
+          element.style.width = "50px";
+          element.style.height = "50px";
+          element.style.objectFit = "cover";
         } else if (file.type.startsWith("video/")) {
           element = document.createElement("video");
           element.src = e.target.result;
           element.controls = true;
-          element.classList.add("media-preview");
           element.style.width = "50px";
           element.style.height = "50px";
           element.style.objectFit = "cover";
@@ -109,7 +71,6 @@ function setupForm({ formId, inputId, previewId, labelTextId, maxFiles = 3 }) {
         deleteBtn.style.lineHeight = "18px";
         deleteBtn.style.padding = "0";
         deleteBtn.style.cursor = "pointer";
-        deleteBtn.style.userSelect = "none";
         deleteBtn.style.zIndex = "10";
 
         deleteBtn.addEventListener("click", (ev) => {
@@ -128,51 +89,50 @@ function setupForm({ formId, inputId, previewId, labelTextId, maxFiles = 3 }) {
     });
   }
 
+  // Відправка форми
   form.addEventListener("submit", (ev) => {
     ev.preventDefault();
 
-    if (selectedFiles.length === 0) {
-      alert("Please select at least one photo or video.");
-      return;
-    }
-
     const submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
-    const originalBtnText = submitBtn.textContent;
-    submitBtn.textContent = "Senting...";
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Sending...";
 
     const formData = new FormData(form);
 
+    // Видаляємо старі файли з FormData, додаємо вибрані файли
     for (const key of formData.keys()) {
       if (key === inputFile.name) formData.delete(key);
     }
-    selectedFiles.forEach((file) => {
-      formData.append(inputFile.name, file);
-    });
+    selectedFiles.forEach((file) => formData.append(inputFile.name, file));
 
     fetch(form.action, {
       method: "POST",
       body: formData,
     })
-      .then((response) => response.text())
-      .then((result) => {
-        alert("Form submitted successfully!");
-        form.reset();
-        selectedFiles = [];
-        renderPreviews();
-        document.getElementById("formModal").style.display = "none";
+      .then((res) => res.json())
+      .then((data) => {
+        alert(data.message);
+        if (data.status === "success") {
+          form.reset();
+          selectedFiles = [];
+          renderPreviews();
+          const modal = document.getElementById("formModal");
+          if (modal) modal.style.display = "none";
+        }
       })
-      .catch((error) => {
+      .catch((err) => {
+        console.error(err);
         alert("Error submitting the form.");
-        console.error(error);
       })
       .finally(() => {
         submitBtn.disabled = false;
-        submitBtn.textContent = originalBtnText;
+        submitBtn.textContent = originalText;
       });
   });
 }
 
+// Виклики для твоїх форм
 setupForm({
   formId: "form1",
   inputId: "media-top",
@@ -180,6 +140,7 @@ setupForm({
   labelTextId: "media-label-text-top",
   maxFiles: 3,
 });
+
 setupForm({
   formId: "form2",
   inputId: "media-bottom",
@@ -187,42 +148,11 @@ setupForm({
   labelTextId: "media-label-text-bottom",
   maxFiles: 3,
 });
+
 setupForm({
   formId: "form3",
   inputId: "media-modal",
   previewId: "preview-modal",
   labelTextId: "media-label-text-modal",
   maxFiles: 3,
-});
-
-document.querySelectorAll(".openModalBtn").forEach((button) => {
-  button.addEventListener("click", () => {
-    document.getElementById("formModal").style.display = "block";
-  });
-});
-document.getElementById("closeModalBtn").addEventListener("click", () => {
-  document.getElementById("formModal").style.display = "none";
-});
-window.addEventListener("click", (event) => {
-  const modal = document.getElementById("formModal");
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-});
-
-// Активний пункт меню
-document.addEventListener("DOMContentLoaded", function () {
-  const links = document.querySelectorAll("a[href]");
-  let current = window.location.pathname.split("/").pop();
-
-  if (current === "" || current === "/") {
-    current = "index.html";
-  }
-
-  links.forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href === current) {
-      link.classList.add("active");
-    }
-  });
 });

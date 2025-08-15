@@ -6,31 +6,36 @@ require 'PHPMailer-master/src/Exception.php';
 require 'PHPMailer-master/src/PHPMailer.php';
 require 'PHPMailer-master/src/SMTP.php';
 
-// Підключаємо конфіг (дані з .gitignore)
-require __DIR__ . '/config.php';
-
+// Перевірка POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit(json_encode(['status' => 'error', 'message' => 'No data to send.']));
 }
 
-$name  = htmlspecialchars(trim($_POST['name'] ?? ''), ENT_QUOTES, 'UTF-8');
-$email = htmlspecialchars(trim($_POST['email'] ?? ''), ENT_QUOTES, 'UTF-8');
+// Дані з форми
+$name  = trim($_POST['name'] ?? '');
+$email = trim($_POST['email'] ?? '');
 
 if (!$name || !$email) {
     exit(json_encode(['status' => 'error', 'message' => 'Name and Email/Phone are required.']));
 }
 
+// Захист від повторної відправки
 session_start();
 if (!empty($_SESSION['last_sent']) && time() - $_SESSION['last_sent'] < 10) {
     exit(json_encode(['status' => 'error', 'message' => 'Please wait a few seconds before resubmitting.']));
 }
 $_SESSION['last_sent'] = time();
 
+// SMTP налаштування
+$email_user = 'mail@pdrpatrol.ca';
+$email_pass = 'M@il123456';
+$email_to   = 'sovadimidrol@gmail.com';
+
 $mail = new PHPMailer(true);
 
 try {
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
+    $mail->Host       = 'smtp.hostinger.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = $email_user;
     $mail->Password   = $email_pass;
@@ -46,13 +51,11 @@ try {
              <p><b>Full Name:</b> {$name}</p>
              <p><b>Contacts:</b> {$email}</p>";
 
+    // Обробка файлів
     if (!empty($_FILES['files']['name'][0])) {
         $body .= "<p><b>Added files:</b></p><ul>";
-        $allowedTypes = [
-            'image/jpeg', 'image/png', 'application/pdf',
-            'video/mp4', 'video/quicktime', 'video/webm', 'video/ogg'
-        ];
-
+        $allowedTypes = ['image/jpeg','image/png','application/pdf','video/mp4','video/quicktime','video/webm','video/ogg'];
+        
         foreach ($_FILES['files']['tmp_name'] as $i => $tmpName) {
             $fileName = $_FILES['files']['name'][$i];
             $fileSize = $_FILES['files']['size'][$i];
