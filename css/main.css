@@ -222,8 +222,9 @@ a {
     display: flex;
   }
 }
-.header__wrap button {
+.header__wrap .button {
   width: 320px;
+  padding: 8px 24px !important;
 }
 .header__logo {
   display: flex;

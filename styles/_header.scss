@@ -79,8 +79,9 @@
     @media screen and ( min-width:1024px) {
         display: flex;
     }
-    button{
+    .button{
         width: 320px;
+        padding: 8px 24px !important;
     }
     
 }
